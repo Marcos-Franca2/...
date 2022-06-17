@@ -1,7 +1,7 @@
 
 var operador = ''
 function insert(num) {
-    var reg = /^\d.?\d*$/;
+    var reg = /^\d?\d*$/;
     var display = document.getElementById('result').innerHTML
     if (display.length == 0 && !reg.test(num)) {
 
@@ -17,6 +17,18 @@ function insert(num) {
     var number = document.getElementById("result").innerHTML;
     document.getElementById('result').innerHTML = number + num;
 }
+function decimal(decimal){
+    var display = document.getElementById('result').innerHTML
+    var myArray = display.split("")
+    console.log(myArray[-1])
+    if (myArray.slice(display.length - 1) == "." || myArray.slice(display.length - 1) == "," ) {
+
+        return;
+    }
+
+    var dec = document.getElementById("result").innerHTML;
+    document.getElementById("result").innerHTML = dec + decimal
+}
 function clean() {
     document.getElementById('result').innerHTML = "";
 }
@@ -26,6 +38,7 @@ function calc() {
     if (result) {
         document.getElementById('result').innerHTML = eval(result);
     }
+
 }
 
 function back(){
